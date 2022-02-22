@@ -1,0 +1,47 @@
+Aissatou Assouma 
+aassouma1@student.gsu.edu
+2/19/2021
+DSCI 1302 
+
+import numpy as np  #<-- import numpy from scipy to import stats 
+from scipy import stats
+
+# make a class of state to 
+class stat: 
+ # initializing the grade 
+  def __init__(self, n):
+    self.n = n
+# make a median
+  def median(self):
+    return np.median(self.n)
+  # make a mean 
+  def mean(self):
+    return(np.mean(self.n))
+  # make a mode 
+  def mode(self):
+    return round(max(set(list(self.n)), key = list(self.n).count))
+  # make a variance 
+  def variance(self):
+    return(np.var(self.n))
+  # make standard deviation 
+  def standard_deviation(self):
+    return(np.std(self.n))
+
+arr = np.array([5,3,6,9,8]) # <-- as an array variabel 
+
+n1 = stat(arr) # <-- Call the function that intialize all the stats 
+
+# Print the Mean, Mode, Median, Variance, & Standard Deviatio n
+print( "The Mean is : ", n1.mean())
+
+print("The Median is : ", n1.median())
+
+print("The Mode is : ", n1.mode())
+
+print("The Variance is : ", n1.variance())
+
+print("The Standard Deviation is :", n1.standard_deviation())
+    
+
+# Time Complexity: O(nlogn)
+# Space Complexity : O(n) <-- it calling "itself"
