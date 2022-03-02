@@ -1,0 +1,148 @@
+Aissatou Assouma 
+2/27/2022
+DSCI 1302
+
+class Employee:
+  # Make a class for the emloyee 
+    def __init__(self, name, joining, address): 
+      # Make a variable for the def in ()
+        self.name = name
+        self.joining= joining
+        self.address = address
+        self.salary = 0 #<-- set salary to 0 
+        self.hours= 0 #<-- set hours to 0 
+
+    def getInfo(self, salary, worked): # <-- make a def to get the employee info 
+        self.salary = salary #<--- make salary variable 
+        self.hours = worked #<--make a hours variable 
+
+    def AddSal(self): #<--- make a def variable (must be nice to add on $10 onto weekly check . >:(
+        if self.salary < 500: self.salary += 10
+
+    def AddWork(self): # <-- make a def for Add work 
+        if self.hours > 6: self.salary += 5
+
+    def print(self): #<-- print the e
+        print('{:<20} {:>10} {:>15} {:^40}'.format('Name','Joining','Salary','Address'))
+        print(f'{self.name:<20}{self.joining:>10}{self.salary:>15}{self.address:^40}')
+
+
+ep = Employee('Aiyden', 1999, 'Black Walls Street') # <-- print the employee paperwork 
+ep.getInfo(400, 7)
+ep.AddSal()
+ep.AddWork()
+ep.print()
+
+
+# Question 2: 
+
+import math # Import math 
+
+class shape: 
+# Make an empty variable to be override for the next class 
+  def __init__(self):
+      pass
+  
+  def areas(self): 
+    pass 
+  
+class triangel (shape):
+  def __init__(self, sidem, siden, angle):
+    # make a variable in the init () 
+    self.side_m = sidem 
+    self.side_n = siden 
+    self.angel = angle 
+
+  def areas(self): 
+    return self.side_m * self.side_n * math.sin(math.radians(self.angel)) / 2 # <-- return the variable ( the calculation)
+
+class rectangle(shape):
+  # Make a class for the rectangle calculatio 
+  def __init__(self, height, width):
+    # make a variable for the init() 
+    self.h = height 
+    self.w = width 
+
+  def areas(self):
+    return self.h * self.w
+
+
+a = triangel(6, 6, 90) # <-- input number in the variable 
+print('Triangle Area:',a.areas()) # <-- print the triangle 
+
+e = rectangle(15, 16) # <-- input number in variable
+print('Rectangle Area', e.areas()) # <-- print the rectangle 
+  
+
+
+
+
+
+import numpy as np # <-- import numpy for it to work 
+
+class BigMatrixMath: 
+
+  def __init__(self):
+    self.mat = [] #<-- make an empty  variable 
+  
+  def addMatrix(self, arr = np.random.randint(-70,159,(40,40))):
+    self.mat.append(arr) #<-- adding the unknown size of matrix 
+  
+  def printdimension(self):
+    for arr in self.mat:
+      print(arr.shape)
+  
+  def dotproductelgible(self, n, j):
+    # make a variable that shape the variable 
+    d1 = (self.mat)[n].shape # 
+    d2 = (self.mat)[j].shape 
+
+    # if not format correctly return false 
+    if (d1[1] == d2[0]): 
+      return True 
+    else: 
+      return False 
+
+arr = np.linspace(0.0, 100.0, 25, dtype = np.float64) #<-- allows for float 
+print(arr) # <-- print the variable 
+
+
+
+
+# Appending the arrays 
+a = np.array([[56,12], [39, 74]]) #<-- add an 
+b = np.array([[65,76]])
+c = np.append(a,b,0)
+print(c)
+
+
+# Question 1:
+import pandas as pd
+d1 = pd.read_csv(r'adult.csv')
+d1
+
+average = d1.loc[d1["age"] == "=< 50K", 'class'].mean()
+print(average)
+
+dd = d1['hours-per-week']
+de = d1["age"]
+dw = dd.corr(de)
+print(dw)
+
+
+d2 = pd.read_csv('car.csv')
+d2
+d4 = pd.read_csv('car.csv')
+d4.corr(method = 'kendall')
+
+
+
+d5 = d3["Petal_length"].median()
+print('The median petal length is :',d5)
+
+d6 = d3['Petal_width'].median()
+print('The median petal width is : ', d6)
+
+
+de = pd.read_csv('iris.csv')
+de.corr(method = 'pearson')
