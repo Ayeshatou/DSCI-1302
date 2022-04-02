@@ -1,0 +1,73 @@
+# Import the matplot & numpy 
+import matplotlib.pyplot as plt 
+import numpy as np 
+
+s = 100 # make a variable
+#Initializing 2 array in these range()
+x = np.linspace(-3 *np.pi + (np.pi/2), 3 * np.pi + (np.pi/2), s)
+
+x1 = np.linspace(-3 * np.pi, 3 * np.pi, s)
+
+#Define the sin and cos
+y = 2 * np.sin(x)
+
+y1 = 2 * np.cos(x1)
+
+plt.figure("Q1") # <-- make figure for Q1
+
+#Use def to plot & use red = increase and  green = decreasing 
+def plot(x, y, label, marker ="-"): #<-- ploting & using these variables 
+  i = 1 #<-- intialize the index 
+
+  # run loop until end of array 
+  while i < len(x): 
+    ys = [y[i-1]]
+
+    xs = [x[i-1]]
+
+    if y[i] > y[i-1]: #<--- if the element is increasing 
+      while i < len(y) and y[i] > y[i - 1]:
+        ys.append(y[i]) # Append element if it is increasing 
+        xs.append(x[i])
+
+        i += 1
+      color = "red" #<-- make the color red to indicate increasing 
+    else: 
+      while i < len(y) and y[i] <= y[i - 1]: #<--- append element if it decreasing 
+        ys.append(y[i])
+        xs.append(x[i])
+
+        i += 1 
+      color = "green" #<-- make that color green to indicate decreasing 
+    # Set labels to know which what 
+    if i == len(x - 1):
+      plt.plot(xs, ys, marker, color = color, label= label)
+    else:
+      plt.plot(xs, ys, marker, color = color)
+#Make the legend for the sin & code 
+plot(x, y, label ="2sin(x)")
+plot(x1, y1, label="2cose(x)", marker = "--")
+#Labeling the axis of X and Y 
+plt.xlabel('x', fontsize = 15)
+plt.ylabel('y', fontsize = 15)
+
+plt.ylim(-4,4) #<-- limit the y-axis 
+
+plt.grid(color = "blue", alpha = 0.2) #<-- plot the grid 
+
+plt.legend() # display the legend 
+
+
+'''
+For this graph its is using np.linspace to evenly space out both sequence. 
+Each sequence is either shows doted or solid line to indicate if it is decreasing or 
+increasing at each interval. 
+np.pi is making the sequence constant to each other. 
+The plt.lim set the limit on y-axis so that the seqeunce would rise and it would at set
+limit. 
+'''
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+S
