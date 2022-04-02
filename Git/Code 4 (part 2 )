@@ -1,0 +1,29 @@
+# Q2 
+x = np.random.rand(1000) * 100 #<-- make 
+y = np.random.normal(50, 10 , 1000)
+
+#Calcuates the x mean & std 
+xmean = x.mean()
+xstd = x.std()
+# Calculates the y mean & std 
+ymean = y.mean()
+ystd = y.std()
+
+plt.figure("Q2") #<--- plot the Q2 figure 
+
+#Make a histogram 
+plt.hist(x, bins = 20, edgecolor = 'black', alpha = 0.5, label = 'X')
+plt.hist(y, bins = 20 , edgecolor = 'black', alpha = 0.5, label = 'Y')
+
+plt.legend() # show legend of x and y bar 
+plt.show #<-- show the image 
+
+'''
+Explanation: 
+np.random.rand is generation an array of the given shape and it populate with random
+from a uniform distribution.
+
+x is an array of 1000 random sample  while y is an array of 100 random sample draw
+(x is from uniform dist & y is normal dist)
+
+'''
